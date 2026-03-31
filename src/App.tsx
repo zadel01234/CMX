@@ -951,6 +951,7 @@ import {
 } from 'lucide-react';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
+
 import logo from "/CMXConnectIbadanLogo.webp"
 import logo2 from "/CMXConnectIbadanLogo2.webp"
 import shirt from "/CMXSHIRT2.webp"
@@ -959,7 +960,11 @@ import past1 from "/DSC00133.JPG"
 import past2 from "/R5__2057.JPG"
 import past3 from "/JKV_0236.jpg"
 import past4 from "/JKV_0237.jpg"
-
+import pic1 from "/DSC00417.JPG"
+import pic2 from "/DSC00472.JPG"
+import pic3 from "/JKV_0326.jpg"
+import pic4 from "/JKV_0374.jpg"
+import pic5 from "/R5__2145.JPG"
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -1078,64 +1083,312 @@ const Navbar = ({ currentPage, setPage }: { currentPage: Page; setPage: (p: Page
 
 
 // ─── Hero ─────────────────────────────────────────────────────────────────────
-const Hero = () => (
-  <section className="relative pt-32 pb-20 overflow-hidden">
-    <div className="container-custom relative z-10">
-      <div className="grid lg:grid-cols-2 gap-12 items-center">
-        <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-cmx-blue/10 text-cmx-blue rounded-full text-xs font-bold uppercase tracking-widest mb-6">
-            <Zap size={14} /> The Premier Community Event in Africa
-          </div>
-          <h1 className="text-5xl md:text-7xl font-black leading-[0.9] mb-6">
-            BEYOND THE <br /><span className="text-cmx-blue">HORIZON</span>
-          </h1>
-          <p className="text-lg text-gray-600 mb-8 max-w-lg leading-relaxed">
-            Redefining the strategic importance of community for businesses, entrepreneurs, and tech talent in the African ecosystem.
-          </p>
-          <div className="flex flex-wrap gap-4 mb-12">
-            <div className="flex items-center gap-3 bg-cmx-gray px-5 py-3 rounded-2xl">
-              <Calendar className="text-cmx-blue" size={20} />
-              <div>
-                <p className="text-[10px] uppercase font-bold text-gray-400 leading-none mb-1">Date</p>
-                <p className="text-sm font-bold">October 26, 2024</p>
+// const Hero = () => (
+//   <section className="relative pt-32 pb-20 overflow-hidden">
+//     <div className="container-custom relative z-10">
+//       <div className="grid lg:grid-cols-2 gap-12 items-center">
+//         <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
+//           <div className="inline-flex items-center gap-2 px-4 py-2 bg-cmx-blue/10 text-cmx-blue rounded-full text-xs font-bold uppercase tracking-widest mb-6">
+//             <Zap size={14} /> The Premier Community Event in Africa
+//           </div>
+//           <h1 className="text-5xl md:text-7xl font-black leading-[0.9] mb-6">
+//             BEYOND THE <br /><span className="text-cmx-blue">HORIZON</span>
+//           </h1>
+//           <p className="text-lg text-gray-600 mb-8 max-w-lg leading-relaxed">
+//             Redefining the strategic importance of community for businesses, entrepreneurs, and tech talent in the African ecosystem.
+//           </p>
+//           <div className="flex flex-wrap gap-4 mb-12">
+//             <div className="flex items-center gap-3 bg-cmx-gray px-5 py-3 rounded-2xl">
+//               <Calendar className="text-cmx-blue" size={20} />
+//               <div>
+//                 <p className="text-[10px] uppercase font-bold text-gray-400 leading-none mb-1">Date</p>
+//                 <p className="text-sm font-bold">October 26, 2024</p>
+//               </div>
+//             </div>
+//             <div className="flex items-center gap-3 bg-cmx-gray px-5 py-3 rounded-2xl">
+//               <MapPin className="text-cmx-blue" size={20} />
+//               <div>
+//                 <p className="text-[10px] uppercase font-bold text-gray-400 leading-none mb-1">Location</p>
+//                 <p className="text-sm font-bold">Ibadan, Nigeria</p>
+//               </div>
+//             </div>
+//           </div>
+//           <div className="flex flex-col sm:flex-row gap-4">
+//             <button className="btn-primary flex items-center justify-center gap-2">
+//               Get Your Ticket <ArrowRight size={18} />
+//             </button>
+//             <button className="btn-outline" onClick={() => {
+//               document.getElementById('structure')?.scrollIntoView({ behavior: 'smooth' });
+//             }}>View Schedule</button>
+//           </div>
+//         </motion.div>
+//         <motion.div
+//           initial={{ opacity: 0, scale: 0.8 }}
+//           animate={{ opacity: 1, scale: 1 }}
+//           transition={{ duration: 1, delay: 0.2 }}
+//           className="relative"
+//         >
+//           <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-700">
+//             <img src={hero} alt="CMX Summit" className="w-full h-auto object-cover" referrerPolicy="no-referrer" />
+//           </div>
+//           <div className="absolute -top-10 -right-10 w-40 h-40 bg-cmx-orange/20 rounded-full blur-3xl" />
+//           <div className="absolute -bottom-10 -left-10 w-60 h-60 bg-cmx-blue/20 rounded-full blur-3xl" />
+//           <div className="absolute top-1/2 -translate-y-1/2 -right-4 w-24 h-24 bg-white rounded-2xl shadow-xl flex items-center justify-center z-20 animate-bounce">
+//             <Users size={40} className="text-cmx-blue" />
+//           </div>
+//         </motion.div>
+//       </div>
+//     </div>
+//   </section>
+// );
+
+// const CAROUSEL_IMAGES = [hero, pic2, pic3, pic4];
+// const INTERVAL_MS = 3500;
+
+// const Hero = () => {
+//     const [currentIndex, setCurrentIndex] = useState(0);
+
+//     // Preload all images on mount
+//     useEffect(() => {
+//         CAROUSEL_IMAGES.forEach((src) => {
+//             const img = new Image();
+//             img.src = src;
+//         });
+//     }, []);
+
+//     useEffect(() => {
+//         const timer = setInterval(() => {
+//             setCurrentIndex((prev) => (prev + 1) % CAROUSEL_IMAGES.length);
+//         }, INTERVAL_MS);
+//         return () => clearInterval(timer);
+//     }, []);
+
+//     return (
+//         <section className="relative pt-32 pb-20 overflow-hidden">
+//             <div className="container-custom relative z-10">
+//                 <div className="grid lg:grid-cols-2 gap-12 items-center">
+//                     <motion.div
+//                         initial={{ opacity: 0, x: -50 }}
+//                         animate={{ opacity: 1, x: 0 }}
+//                         transition={{ duration: 0.8 }}
+//                     >
+//                         <div className="inline-flex items-center gap-2 px-4 py-2 bg-cmx-blue/10 text-cmx-blue rounded-full text-xs font-bold uppercase tracking-widest mb-6">
+//                             <Zap size={14} /> The Premier Community Event in Africa
+//                         </div>
+//                         <h1 className="text-5xl md:text-7xl font-black leading-[0.9] mb-6">
+//                             BEYOND THE <br />
+//                             <span className="text-cmx-blue">HORIZON</span>
+//                         </h1>
+//                         <p className="text-lg text-gray-600 mb-8 max-w-lg leading-relaxed">
+//                             Redefining the strategic importance of community for businesses,
+//                             entrepreneurs, and tech talent in the African ecosystem.
+//                         </p>
+//                         <div className="flex flex-wrap gap-4 mb-12">
+//                             <div className="flex items-center gap-3 bg-cmx-gray px-5 py-3 rounded-2xl">
+//                                 <Calendar className="text-cmx-blue" size={20} />
+//                                 <div>
+//                                     <p className="text-[10px] uppercase font-bold text-gray-400 leading-none mb-1">
+//                                         Date
+//                                     </p>
+//                                     <p className="text-sm font-bold">October 26, 2024</p>
+//                                 </div>
+//                             </div>
+//                             <div className="flex items-center gap-3 bg-cmx-gray px-5 py-3 rounded-2xl">
+//                                 <MapPin className="text-cmx-blue" size={20} />
+//                                 <div>
+//                                     <p className="text-[10px] uppercase font-bold text-gray-400 leading-none mb-1">
+//                                         Location
+//                                     </p>
+//                                     <p className="text-sm font-bold">Ibadan, Nigeria</p>
+//                                 </div>
+//                             </div>
+//                         </div>
+//                         <div className="flex flex-col sm:flex-row gap-4">
+//                             <button className="btn-primary flex items-center justify-center gap-2">
+//                                 Get Your Ticket <ArrowRight size={18} />
+//                             </button>
+//                             <button
+//                                 className="btn-outline"
+//                                 onClick={() =>
+//                                     document
+//                                         .getElementById("structure")
+//                                         ?.scrollIntoView({ behavior: "smooth" })
+//                                 }
+//                             >
+//                                 View Schedule
+//                             </button>
+//                         </div>
+//                     </motion.div>
+
+//                     {/* Carousel Side */}
+//                     <motion.div
+//                         initial={{ opacity: 0, scale: 0.8 }}
+//                         animate={{ opacity: 1, scale: 1 }}
+//                         transition={{ duration: 1, delay: 0.2 }}
+//                         className="relative"
+//                     >
+//                         <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-700 aspect-[4/3]">
+
+//                             {/* All images stacked, crossfade via opacity only */}
+//                             {CAROUSEL_IMAGES.map((src, i) => (
+//                                 <motion.img
+//                                     key={i}
+//                                     src={src}
+//                                     alt={`CMX Summit ${i + 1}`}
+//                                     referrerPolicy="no-referrer"
+//                                     className="w-full h-full object-cover absolute inset-0"
+//                                     animate={{ opacity: i === currentIndex ? 1 : 0, scale: i === currentIndex ? 1 : 1.05, }}
+//                                     transition={{ duration: 0.8, ease: "easeOut" }}
+//                                     style={{ zIndex: i === currentIndex ? 2 : 1 }}
+//                                 />
+//                             ))}
+//                         </div>
+
+//                         {/* Decorative blobs */}
+//                         <div className="absolute -top-10 -right-10 w-40 h-40 bg-cmx-orange/20 rounded-full blur-3xl" />
+//                         <div className="absolute -bottom-10 -left-10 w-60 h-60 bg-cmx-blue/20 rounded-full blur-3xl" />
+
+//                         {/* Floating badge */}
+//                         <div className="absolute top-1/2 -translate-y-1/2 -right-4 w-24 h-24 bg-white rounded-2xl shadow-xl flex items-center justify-center z-20 animate-bounce">
+//                             <Users size={40} className="text-cmx-blue" />
+//                         </div>
+//                     </motion.div>
+//                 </div>
+//             </div>
+//         </section>
+//     );
+// };
+
+const CAROUSEL_IMAGES = [hero, pic2, pic3, pic4];
+const INTERVAL_MS = 7500;
+
+const Hero = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // ✅ Preload images to avoid lag
+  useEffect(() => {
+    CAROUSEL_IMAGES.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
+
+  // ✅ Auto-slide logic
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % CAROUSEL_IMAGES.length);
+    }, INTERVAL_MS);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <section className="relative pt-32 pb-20 overflow-hidden">
+      <div className="container-custom relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+
+          {/* LEFT CONTENT */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-cmx-blue/10 text-cmx-blue rounded-full text-xs font-bold uppercase tracking-widest mb-6">
+              <Zap size={14} /> The Premier Community Event in Africa
+            </div>
+
+            <h1 className="text-5xl md:text-7xl font-black leading-[0.9] mb-6">
+              BEYOND THE <br />
+              <span className="text-cmx-blue">HORIZON</span>
+            </h1>
+
+            <p className="text-lg text-gray-600 mb-8 max-w-lg leading-relaxed">
+              Redefining the strategic importance of community for businesses,
+              entrepreneurs, and tech talent in the African ecosystem.
+            </p>
+
+            <div className="flex flex-wrap gap-4 mb-12">
+              <div className="flex items-center gap-3 bg-cmx-gray px-5 py-3 rounded-2xl">
+                <Calendar className="text-cmx-blue" size={20} />
+                <div>
+                  <p className="text-[10px] uppercase font-bold text-gray-400 mb-1">
+                    Date
+                  </p>
+                  <p className="text-sm font-bold">October 26, 2024</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3 bg-cmx-gray px-5 py-3 rounded-2xl">
+                <MapPin className="text-cmx-blue" size={20} />
+                <div>
+                  <p className="text-[10px] uppercase font-bold text-gray-400 mb-1">
+                    Location
+                  </p>
+                  <p className="text-sm font-bold">Ibadan, Nigeria</p>
+                </div>
               </div>
             </div>
-            <div className="flex items-center gap-3 bg-cmx-gray px-5 py-3 rounded-2xl">
-              <MapPin className="text-cmx-blue" size={20} />
-              <div>
-                <p className="text-[10px] uppercase font-bold text-gray-400 leading-none mb-1">Location</p>
-                <p className="text-sm font-bold">Ibadan, Nigeria</p>
-              </div>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <button className="btn-primary flex items-center justify-center gap-2">
+                Get Your Ticket <ArrowRight size={18} />
+              </button>
+
+              <button
+                className="btn-outline"
+                onClick={() =>
+                  document
+                    .getElementById("structure")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+              >
+                View Schedule
+              </button>
             </div>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <button className="btn-primary flex items-center justify-center gap-2">
-              Get Your Ticket <ArrowRight size={18} />
-            </button>
-            <button className="btn-outline" onClick={() => {
-              document.getElementById('structure')?.scrollIntoView({ behavior: 'smooth' });
-            }}>View Schedule</button>
-          </div>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="relative"
-        >
-          <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-700">
-            <img src={hero} alt="CMX Summit" className="w-full h-auto object-cover" referrerPolicy="no-referrer" />
-          </div>
-          <div className="absolute -top-10 -right-10 w-40 h-40 bg-cmx-orange/20 rounded-full blur-3xl" />
-          <div className="absolute -bottom-10 -left-10 w-60 h-60 bg-cmx-blue/20 rounded-full blur-3xl" />
-          <div className="absolute top-1/2 -translate-y-1/2 -right-4 w-24 h-24 bg-white rounded-2xl shadow-xl flex items-center justify-center z-20 animate-bounce">
-            <Users size={40} className="text-cmx-blue" />
-          </div>
-        </motion.div>
+          </motion.div>
+
+          {/* RIGHT CAROUSEL */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="relative"
+          >
+            <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-700 aspect-[4/3]">
+
+              {/* ✅ All images stacked, only active image animates */}
+              {CAROUSEL_IMAGES.map((src, i) => (
+                <motion.img
+                  key={i}
+                  src={src}
+                  alt={`CMX Summit ${i + 1}`}
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover absolute inset-0"
+                  initial={false} // keep mounted, do not remount
+                  animate={{
+                    opacity: i === currentIndex ? 1 : 0,
+                    scale: i === currentIndex ? 1 : 1.05, // pop effect
+                  }}
+                  transition={{ duration: 2, ease: "easeOut" }}
+                  style={{ zIndex: i === currentIndex ? 2 : 1 }}
+                />
+              ))}
+            </div>
+
+            {/* Decorative blobs */}
+            <div className="absolute -top-10 -right-10 w-40 h-40 bg-cmx-orange/20 rounded-full blur-3xl" />
+            <div className="absolute -bottom-10 -left-10 w-60 h-60 bg-cmx-blue/20 rounded-full blur-3xl" />
+
+            {/* Floating badge */}
+            <div className="absolute top-1/2 -translate-y-1/2 -right-4 w-24 h-24 bg-white rounded-2xl shadow-xl flex items-center justify-center z-20 animate-bounce">
+              <Users size={40} className="text-cmx-blue" />
+            </div>
+          </motion.div>
+
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const ThemeSection = () => (
   <section className="py-12 bg-cmx-blue text-white overflow-hidden">
@@ -1238,7 +1491,7 @@ const AboutPage = () => {
               </div>
             </div>
             <div className="rounded-[3rem] overflow-hidden shadow-2xl">
-              <img src="https://picsum.photos/seed/about-full/800/700" className="w-full h-auto" referrerPolicy="no-referrer" />
+              <img src={past1} className="w-full h-auto" referrerPolicy="no-referrer" />
             </div>
           </div>
         </div>
@@ -1266,7 +1519,7 @@ const AboutPage = () => {
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="rounded-[3rem] overflow-hidden shadow-xl">
-              <img src="https://picsum.photos/seed/track/800/550" className="w-full h-auto" referrerPolicy="no-referrer" />
+              <img src={past2} className="w-full h-auto" referrerPolicy="no-referrer" />
             </div>
             <div>
               <h2 className="text-3xl md:text-4xl mb-6">A Proven Track Record</h2>
@@ -1453,7 +1706,7 @@ const TargetAudience = () => {
           </div>
           <div className="relative">
             <div className="rounded-[3rem] overflow-hidden shadow-2xl">
-              <img src="https://picsum.photos/seed/audience/800/800" className="w-full h-auto" referrerPolicy="no-referrer" />
+              <img src={past2} className="w-full h-auto" referrerPolicy="no-referrer" />
             </div>
             <div className="absolute -bottom-6 -right-6 bg-cmx-orange text-white p-8 rounded-3xl shadow-xl max-w-xs">
               <p className="text-sm font-bold uppercase tracking-widest mb-2">Limited Seats</p>
@@ -1469,10 +1722,10 @@ const TargetAudience = () => {
 // ─── Speakers (home preview) ──────────────────────────────────────────────────
 const Speakers = ({ onViewMore }: { onViewMore: () => void }) => {
   const speakers = [
-    { name: "Samson Goddy", role: "Co-Founder, Open Source Africa", seed: "s1" },
-    { name: "Timothy Oviem", role: "Lead, Community Leads in Africa", seed: "s2" },
-    { name: "Haneefah A. Lekki", role: "Programs & Community Manager", seed: "s3" },
-    { name: "Mfonobong Umondia", role: "Community Manager, She Code Africa", seed: "s4" },
+    { name: "Samson Goddy", role: "Co-Founder, Open Source Africa", seed: past3 },
+    { name: "Timothy Oviem", role: "Lead, Community Leads in Africa", seed: past3 },
+    { name: "Haneefah A. Lekki", role: "Programs & Community Manager", seed: past3 },
+    { name: "Mfonobong Umondia", role: "Community Manager, She Code Africa", seed: past3 },
   ];
 
   return (
@@ -1486,7 +1739,7 @@ const Speakers = ({ onViewMore }: { onViewMore: () => void }) => {
           {speakers.map((speaker, i) => (
             <motion.div key={i} initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }} className="group cursor-pointer">
               <div className="relative aspect-[4/5] rounded-3xl overflow-hidden mb-4">
-                <img src={`https://picsum.photos/seed/${speaker.seed}/400/500`} alt={speaker.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0" referrerPolicy="no-referrer" />
+                <img src={`${speaker.seed}`} alt={speaker.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0" referrerPolicy="no-referrer" />
                 <div className="absolute inset-0 bg-gradient-to-t from-cmx-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                   <div className="flex gap-2">
                     <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center"><Twitter size={14} /></div>
@@ -1512,16 +1765,16 @@ const Speakers = ({ onViewMore }: { onViewMore: () => void }) => {
 // ─── Speakers Full Page ───────────────────────────────────────────────────────
 const SpeakersPage = () => {
   const speakers = [
-    { name: "Samson Goddy", role: "Co-Founder, Open Source Africa", bio: "Software engineer and community builder who co-founded Open Source Africa, championing open source culture across the continent.", seed: "s1", track: "Community Strategy" },
-    { name: "Timothy Oviem", role: "Lead, Community Leads in Africa", bio: "Leads one of Africa's most active community-of-practice networks, helping community professionals upskill and find their place in the ecosystem.", seed: "s2", track: "Community Leadership" },
-    { name: "Haneefah A. Lekki", role: "Programs & Community Manager", bio: "Has managed programs and communities across multiple tech organisations, bridging the gap between operations and people-first culture.", seed: "s3", track: "People & Programs" },
-    { name: "Mfonobong Umondia", role: "Community Manager, She Code Africa", bio: "Drives community engagement and inclusion at She Code Africa, empowering women in tech across the continent.", seed: "s4", track: "Inclusion & Diversity" },
-    { name: "Ayomide Ogunrinola", role: "Community Manager, WITECH", bio: "Builds and nurtures the WITECH community, creating spaces for women in tech to thrive, collaborate, and lead.", seed: "s5", track: "Community Building" },
-    { name: "Olawale Omotoso", role: "Director of Product Management", bio: "Brings a cross-functional perspective on how community integrates into product roadmaps and business strategy.", seed: "s6", track: "Product & Community" },
-    { name: "Olabanji Ewenla", role: "Lead Product Manager, Enoverlab", bio: "Shapes the product vision at Enoverlab while championing community-led growth as a core business strategy.", seed: "s7", track: "Product Strategy" },
-    { name: "Florence Ogunbore", role: "Product Manager", bio: "Practitioner at the intersection of product management and community, exploring how both disciplines amplify each other.", seed: "s8", track: "Product & People" },
-    { name: "Emmanuel Faith", role: "Lead Consultant, VisitHRClinic", bio: "Helps organisations build people-first cultures, advising on HR strategy and community building for fast-growing teams.", seed: "s9", track: "HR & Culture" },
-    { name: "Joel Moses Babatunde", role: "The Ọgá HR", bio: "Leading voice in Nigeria's HR community, speaking on workforce development and the future of people management.", seed: "s10", track: "HR & Workforce" },
+    { name: "Samson Goddy", role: "Co-Founder, Open Source Africa", bio: "Software engineer and community builder who co-founded Open Source Africa, championing open source culture across the continent.", seed: past2, track: "Community Strategy" },
+    { name: "Timothy Oviem", role: "Lead, Community Leads in Africa", bio: "Leads one of Africa's most active community-of-practice networks, helping community professionals upskill and find their place in the ecosystem.", seed: past2, track: "Community Leadership" },
+    { name: "Haneefah A. Lekki", role: "Programs & Community Manager", bio: "Has managed programs and communities across multiple tech organisations, bridging the gap between operations and people-first culture.", seed: past2, track: "People & Programs" },
+    { name: "Mfonobong Umondia", role: "Community Manager, She Code Africa", bio: "Drives community engagement and inclusion at She Code Africa, empowering women in tech across the continent.", seed: pic1, track: "Inclusion & Diversity" },
+    { name: "Ayomide Ogunrinola", role: "Community Manager, WITECH", bio: "Builds and nurtures the WITECH community, creating spaces for women in tech to thrive, collaborate, and lead.", seed: past2, track: "Community Building" },
+    { name: "Olawale Omotoso", role: "Director of Product Management", bio: "Brings a cross-functional perspective on how community integrates into product roadmaps and business strategy.", seed: past2, track: "Product & Community" },
+    { name: "Olabanji Ewenla", role: "Lead Product Manager, Enoverlab", bio: "Shapes the product vision at Enoverlab while championing community-led growth as a core business strategy.", seed: past2, track: "Product Strategy" },
+    { name: "Florence Ogunbore", role: "Product Manager", bio: "Practitioner at the intersection of product management and community, exploring how both disciplines amplify each other.", seed: past2, track: "Product & People" },
+    { name: "Emmanuel Faith", role: "Lead Consultant, VisitHRClinic", bio: "Helps organisations build people-first cultures, advising on HR strategy and community building for fast-growing teams.", seed: past2, track: "HR & Culture" },
+    { name: "Joel Moses Babatunde", role: "The Ọgá HR", bio: "Leading voice in Nigeria's HR community, speaking on workforce development and the future of people management.", seed: past2, track: "HR & Workforce" },
   ];
 
   return (
@@ -1539,7 +1792,7 @@ const SpeakersPage = () => {
             {speakers.map((speaker, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }} className="group bg-cmx-gray rounded-[2rem] overflow-hidden hover:shadow-xl transition-shadow">
                 <div className="relative aspect-[3/2] overflow-hidden">
-                  <img src={`https://picsum.photos/seed/${speaker.seed}/600/400`} alt={speaker.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale group-hover:grayscale-0" referrerPolicy="no-referrer" />
+                  <img src={`${speaker.seed}`} alt={speaker.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale group-hover:grayscale-0" referrerPolicy="no-referrer" />
                   <div className="absolute top-4 right-4">
                     <span className="bg-cmx-blue text-white text-[10px] font-bold uppercase px-3 py-1.5 rounded-full">{speaker.track}</span>
                   </div>
@@ -1563,6 +1816,36 @@ const SpeakersPage = () => {
 };
 
 // ─── Highlights (home preview) ────────────────────────────────────────────────
+// const Highlights = ({ onViewMore }: { onViewMore: () => void }) => (
+//   <section id="highlights" className="py-24">
+//     <div className="container-custom">
+//       <div className="text-center mb-16">
+//         <h2 className="text-4xl md:text-5xl mb-4">Past Event Highlights</h2>
+//         <p className="text-gray-500">A glimpse into the energy and impact of CMX Nigeria.</p>
+//       </div>
+//       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+//         <div className="col-span-2 row-span-2 rounded-[2rem] overflow-hidden">
+//           <img src={past4} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+//         </div>
+//         <div className="rounded-[2rem] overflow-hidden">
+//           <img src={pic4} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+//         </div>
+//         <div className="rounded-[2rem] overflow-hidden">
+//           <img src={pic3} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+//         </div>
+//         <div className="col-span-2 rounded-[2rem] overflow-hidden h-64">
+//           <img src={pic1} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+//         </div>
+//       </div>
+//       <div className="text-center">
+//         <button onClick={onViewMore} className="inline-flex items-center gap-2 bg-cmx-blue text-white px-8 py-4 rounded-full font-bold hover:shadow-lg hover:scale-105 transition-all">
+//           View All Highlights <ChevronRight size={18} />
+//         </button>
+//       </div>
+//     </div>
+//   </section>
+// );
+
 const Highlights = ({ onViewMore }: { onViewMore: () => void }) => (
   <section id="highlights" className="py-24">
     <div className="container-custom">
@@ -1571,17 +1854,17 @@ const Highlights = ({ onViewMore }: { onViewMore: () => void }) => (
         <p className="text-gray-500">A glimpse into the energy and impact of CMX Nigeria.</p>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-        <div className="col-span-2 row-span-2 rounded-[2rem] overflow-hidden">
-          <img src={past2} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+        <div className="col-span-2 row-span-2 rounded-[2rem] overflow-hidden group cursor-pointer">
+          <img src={past4} className="w-full h-full object-cover scale-100 group-hover:scale-110 transition-transform duration-500 ease-in-out" referrerPolicy="no-referrer" />
         </div>
-        <div className="rounded-[2rem] overflow-hidden">
-          <img src={past1} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+        <div className="rounded-[2rem] overflow-hidden group cursor-pointer">
+          <img src={pic4} className="w-full h-full object-cover scale-100 group-hover:scale-110 transition-transform duration-500 ease-in-out" referrerPolicy="no-referrer" />
         </div>
-        <div className="rounded-[2rem] overflow-hidden">
-          <img src={past3} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+        <div className="rounded-[2rem] overflow-hidden group cursor-pointer">
+          <img src={pic3} className="w-full h-full object-cover scale-100 group-hover:scale-110 transition-transform duration-500 ease-in-out" referrerPolicy="no-referrer" />
         </div>
-        <div className="col-span-2 rounded-[2rem] overflow-hidden h-64">
-          <img src={past4} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+        <div className="col-span-2 rounded-[2rem] overflow-hidden h-64 group cursor-pointer">
+          <img src={pic1} className="w-full h-full object-cover scale-100 group-hover:scale-110 transition-transform duration-500 ease-in-out" referrerPolicy="no-referrer" />
         </div>
       </div>
       <div className="text-center">
@@ -1592,6 +1875,7 @@ const Highlights = ({ onViewMore }: { onViewMore: () => void }) => (
     </div>
   </section>
 );
+
 
 // ─── Highlights Full Page ─────────────────────────────────────────────────────
 const HighlightsPage = () => {
@@ -1615,7 +1899,7 @@ const HighlightsPage = () => {
         <div className="max-w-7xl mx-auto">
           <p className="text-xs font-bold uppercase tracking-widest opacity-70 mb-3">Our History</p>
           <h1 className="text-4xl md:text-6xl font-black mb-6">Event Highlights</h1>
-          <p className="text-xl text-white/80 max-w-2xl">Over two years of high-energy, high-impact community events — panel sessions, networking, showcases and more.</p>
+          <p className="text-xl text-white/80 max-w-2xl">Over two years of high-energy, high-impact community events, panel sessions, networking, showcases and more.</p>
         </div>
       </div>
 
@@ -1647,19 +1931,6 @@ const HighlightsPage = () => {
         </div>
       </section>
 
-      {/* <section className="py-20 bg-cmx-gray">
-        <div className="container-custom">
-          <h2 className="text-3xl font-black mb-10 text-center">Photo Gallery</h2>
-          <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
-            {gallerySeeds.map((seed, i) => (
-              <motion.div key={i} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.04 }} className="break-inside-avoid rounded-2xl overflow-hidden">
-                <img src={`https://picsum.photos/seed/${seed}/${400 + (i % 3) * 50}/${300 + (i % 4) * 60}`} className="w-full h-auto hover:scale-105 transition-transform duration-500" referrerPolicy="no-referrer" />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
       <section className="py-20 bg-cmx-gray">
         <div className="container-custom">
           <h2 className="text-3xl font-black mb-10 text-center">
@@ -1683,16 +1954,15 @@ const HighlightsPage = () => {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.04 }}
-                  className="break-inside-avoid mb-4 rounded-2xl overflow-hidden"
+                  className="break-inside-avoid mb-4 rounded-2xl overflow-hidden group cursor-pointer"
                 >
-                  <div className="relative">
+                  <div className="relative overflow-hidden rounded-2xl">
                     <img
                       src={src}
-                      className={`w-full object-cover ${heights[i % heights.length]} hover:scale-105 transition-transform duration-500`}
+                      className={`w-full object-cover ${heights[i % heights.length]} scale-100 group-hover:scale-110 transition-transform duration-500 ease-in-out`}
                       loading="lazy"
                     />
-
-                    <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition duration-300" />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition duration-300" />
                   </div>
                 </motion.div>
               );
@@ -1703,7 +1973,7 @@ const HighlightsPage = () => {
 
       <section className="py-16 bg-cmx-blue text-white">
         <div className="container-custom text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-black mb-6">CMX Connect — The Series That Built This</h2>
+          <h2 className="text-3xl md:text-4xl font-black mb-6">CMX Connect Ibadan Nigeria</h2>
           <p className="text-xl text-white/80 leading-relaxed mb-8">
             The CMX Nigeria Summit is the evolution of the wildly successful CMX Connect series — consistently drawing 300–500 professionals per session across Nigeria, and now scaling to a full national summit.
           </p>
