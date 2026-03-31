@@ -1014,11 +1014,11 @@ const Navbar = ({ currentPage, setPage }: { currentPage: Page; setPage: (p: Page
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <button onClick={() => setPage('home')} className="flex items-center gap-2">
-          <div className="w-10 h-10 rounded-lg flex items-center justify-center text-white font-bold text-xl">
-            <img src={logo} alt="CMX Summit" className="w-full h-auto object-cover" referrerPolicy="no-referrer" />
+          <div className="w-35 h-10 rounded-lg flex items-center justify-center text-white font-bold text-xl">
+            <img src={logo2} alt="CMX Summit" className="w-full h-auto object-cover" referrerPolicy="no-referrer" />
           </div>
           <span className="font-display font-extrabold text-xl tracking-tighter">
-            CMX <span className="text-cmx-blue">CONNECT</span>
+            {/* CMX <span className="text-cmx-blue">CONNECT</span> */}
           </span>
         </button>
 
@@ -1572,16 +1572,16 @@ const Highlights = ({ onViewMore }: { onViewMore: () => void }) => (
       </div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
         <div className="col-span-2 row-span-2 rounded-[2rem] overflow-hidden">
-          <img src="https://picsum.photos/seed/h1/800/800" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+          <img src={past2} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
         </div>
         <div className="rounded-[2rem] overflow-hidden">
-          <img src="https://picsum.photos/seed/h2/400/400" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+          <img src={past1} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
         </div>
         <div className="rounded-[2rem] overflow-hidden">
-          <img src="https://picsum.photos/seed/h3/400/400" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+          <img src={past3} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
         </div>
         <div className="col-span-2 rounded-[2rem] overflow-hidden h-64">
-          <img src="https://picsum.photos/seed/h4/800/400" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+          <img src={past4} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
         </div>
       </div>
       <div className="text-center">
@@ -1595,7 +1595,7 @@ const Highlights = ({ onViewMore }: { onViewMore: () => void }) => (
 
 // ─── Highlights Full Page ─────────────────────────────────────────────────────
 const HighlightsPage = () => {
-  const gallerySeeds = ["h1","h2","h3","h4","h5","h6","h7","h8","h9","h10","h11","h12"];
+  const gallerySeeds = [past1,past2,past3, past4,hero,past1,past2,past3,past4,hero,past1,past2];
   const eventTypes = [
     { label: "Panel Sessions", desc: "Thought leaders debate the future of community strategy, product, and tech.", icon: <Users size={22} /> },
     { label: "Networking", desc: "Curated networking moments connecting professionals across sectors.", icon: <Handshake size={22} /> },
@@ -1604,9 +1604,9 @@ const HighlightsPage = () => {
   ];
   const stats = [
     { value: "2+", label: "Years Running" },
-    { value: "300–500", label: "Attendees per Event" },
+    { value: "500+", label: "Attendees per Event" },
     { value: "10+", label: "Speakers per Summit" },
-    { value: "4+", label: "Past Events" },
+    { value: "1", label: "Past Events" },
   ];
 
   return (
@@ -1647,7 +1647,7 @@ const HighlightsPage = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-cmx-gray">
+      {/* <section className="py-20 bg-cmx-gray">
         <div className="container-custom">
           <h2 className="text-3xl font-black mb-10 text-center">Photo Gallery</h2>
           <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
@@ -1656,6 +1656,47 @@ const HighlightsPage = () => {
                 <img src={`https://picsum.photos/seed/${seed}/${400 + (i % 3) * 50}/${300 + (i % 4) * 60}`} className="w-full h-auto hover:scale-105 transition-transform duration-500" referrerPolicy="no-referrer" />
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section> */}
+
+      <section className="py-20 bg-cmx-gray">
+        <div className="container-custom">
+          <h2 className="text-3xl font-black mb-10 text-center">
+            Photo Gallery
+          </h2>
+
+          <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4">
+            {gallerySeeds.map((src, i) => {
+              const heights = [
+                "h-[260px]",
+                "h-[320px]",
+                "h-[380px]",
+                "h-[300px]",
+                "h-[350px]",
+              ];
+
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.04 }}
+                  className="break-inside-avoid mb-4 rounded-2xl overflow-hidden"
+                >
+                  <div className="relative">
+                    <img
+                      src={src}
+                      className={`w-full object-cover ${heights[i % heights.length]} hover:scale-105 transition-transform duration-500`}
+                      loading="lazy"
+                    />
+
+                    <div className="absolute inset-0 bg-black/0 hover:bg-black/10 transition duration-300" />
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
